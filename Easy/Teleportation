@@ -1,0 +1,27 @@
+finput = open("C:\\Users\\ben\\Desktop\\usaco\\teleport.txt", "r")
+
+lines = finput.readlines()
+print(lines)
+
+(a, b, x, y) = lines[0].strip().split(" ")
+
+direct_distance = abs(int(a)-int(b))
+print(direct_distance)
+
+total_distance = 0
+distance_1 = abs(int(a)-int(x))
+distance_2 = abs(int(a)-int(y))
+
+if distance_1 < distance_2:
+    total_distance += distance_1
+    total_distance += abs(int(y)-int(b))
+else:
+    total_distance += distance_2
+    total_distance += abs(int(x)-int(b))
+print(total_distance)
+
+if total_distance > direct_distance:
+    total_distance = direct_distance
+    
+with open('C:\\Users\\ben\\Desktop\\usaco\\teleport.out', 'w') as out:
+    print(total_distance, file=out)
