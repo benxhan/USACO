@@ -11,6 +11,9 @@ for x in range(n):
     for y in range(n):
         if lines[y+2] >= h_index:
             citations += 1
+            if L != 0:
+                L -= 1
+                lines[y+4] += 1
     if (citations >= h_index):
         true_h_index = h_index
 
